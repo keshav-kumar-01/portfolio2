@@ -6,7 +6,7 @@ type Props = {
   entry: CollectionEntry<"projects"> | CollectionEntry<"blog">
 }
 
-const { entry } = Astro.props
+const { entry }: { entry: any } = Astro.props;
 const { collection, data, body } = entry
 const { title, summary, date } = data
 

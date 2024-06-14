@@ -13,7 +13,7 @@ export default function Blog({ data, tags }: Props) {
   const [posts, setPosts] = createSignal<CollectionEntry<"blog">[]>([])
 
   createEffect(() => {
-    setPosts(data.filter((entry) => 
+    setPosts(data.filter((entry: any) => 
       Array.from(filter()).every((value) => 
         entry.data.tags.some((tag:string) => 
           tag.toLowerCase() === String(value).toLowerCase()
