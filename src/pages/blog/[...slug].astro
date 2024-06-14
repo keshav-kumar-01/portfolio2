@@ -9,7 +9,7 @@ import ArticleBottomLayout from "@layouts/ArticleBottomLayout.astro"
 // Create the static blog pages
 export async function getStaticPaths() {
 	const posts = await getCollection("blog")
-	return posts.map((post) => ({
+	return posts.map((post: any) => ({
 		params: { slug: post.slug },
 		props: post,
 	}))
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
 // Get the requested post
 type Props = CollectionEntry<"blog">
-const post = Astro.props
+const post = Astro.props as any
 const { title, summary } = post.data
 ---
 

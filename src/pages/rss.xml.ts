@@ -10,7 +10,7 @@ type Item = {
   data: {
     title: string;
     summary: string;
-    date: string;
+    date: Date;
   };
   slug: string;
 };
@@ -31,7 +31,7 @@ export async function GET(context: Context) {
       items: items.map((item) => ({
         title: item.data.title,
         description: item.data.summary,
-        pubDate: new Date(item.data.date).toUTCString(),
+        pubDate: new Date(item.data.date),
         link: item.slug.startsWith("blog")
           ? `/blog/${item.slug}/`
           : `/projects/${item.slug}/`,
